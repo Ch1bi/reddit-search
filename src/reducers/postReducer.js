@@ -1,4 +1,4 @@
-import { GET_SUBREDDIT, SUBREDDIT_SUCCESS, SUBREDDIT_FAILURE } from '../actions'
+import { GET_SUBREDDIT, SUBREDDIT_SUCCESS, SUBREDDIT_FAILURE } from '../actions/types'
 
 const initialState = {
 	subReddit: '', 
@@ -7,7 +7,7 @@ const initialState = {
 	fetching: true
 }
 
-export function subRedditReducer(state=initialState, action){
+export default function subRedditReducer(state=initialState, action){
 
     switch(action.type){
 
@@ -33,6 +33,9 @@ export function subRedditReducer(state=initialState, action){
                 isFetching:false,
                 error:true
             }
+
+            default:
+            return state
 }
 
 }
