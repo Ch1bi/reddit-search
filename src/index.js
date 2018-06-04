@@ -3,15 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
-import redditApp from './reducers';
+import reducers from './reducers';
 import registerServiceWorker from './registerServiceWorker'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux' 
-import { Search } from './components/Search'
-import Home from './components/Search'
-import { SavedPosts } from './components/SavedPosts'
+import thunk from 'redux-thunk';
 
-const store = createStore(redditApp)
+const store = createStore(reducers, window.devToolsExtension && window.devToolsExtension(), applyMiddleware(thunk))
 
 ReactDOM.render(
 <Provider store={store}>

@@ -1,6 +1,9 @@
-import React from 'react'
+import React, {Component} from 'react'
+import Searchbar from './Searchbar'
+import {Posts} from './Posts'
 
-class Home extends React.Component{
+
+class Home extends Component{
 
     constructor(props){
 
@@ -10,10 +13,17 @@ class Home extends React.Component{
 
     render(){
 
+
         return(
 
-            <div>Home</div>
+            <div className="container">
+
+            <Searchbar />
+            <Posts />
+            </div>
         )
     }
 
 }
+
+export default Home

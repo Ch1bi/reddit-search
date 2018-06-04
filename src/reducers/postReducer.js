@@ -7,7 +7,7 @@ const initialState = {
 	fetching: true
 }
 
-export default function subRedditReducer(state=initialState, action){
+export default function subRedditReducer(state = initialState, action){
 
     switch(action.type){
 
@@ -15,16 +15,21 @@ export default function subRedditReducer(state=initialState, action){
 				console.log(action)
 		return {
             ...state,
-            data: action.data
+            isFetching:true,
+            data: []
         }
 
         case 'SUBREDDIT_SUCCESS':
             console.log(action)
+            
             return{
                 ...state,
                 isFetching:false,
-                error:false
+                error:false,
+                data:action.payload.concat(state.data)
+                
             }
+            
 
             case 'SUBREDDIT_FAILURE':
             console.log(action)
